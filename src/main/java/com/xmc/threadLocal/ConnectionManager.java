@@ -44,4 +44,8 @@ public class ConnectionManager {
  * }
  * ThreadLocal默认的initialValue方法直接是return null
  * 需要通过override initialValue方法 或者 调用set方法来进行当前线程的对应值的初始化
+ *
+ *
+ * 其他:因为ThreadLocal最终实现的ThreadLocalMap的对象实际上是属于Thread的属性 如果使用线程池  还需要考虑每次使用完线程将相应的变量移除???
+ *
  */
