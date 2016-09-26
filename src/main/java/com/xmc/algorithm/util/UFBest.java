@@ -4,7 +4,7 @@ package com.xmc.algorithm.util;
  * Created by xmc1993 on 16/9/26.
  *
  * 加权quick-union法
- * 实际上就是压缩路径法
+ * 还不是路径压缩
  *
  * 任意节点的深度最多为lgN
  *
