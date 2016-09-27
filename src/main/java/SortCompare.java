@@ -25,7 +25,7 @@ public class SortCompare {
 
     public static double time(String alg, Double[] a) {
         Stopwatch sw = new Stopwatch();
-        if      (alg.equals("Insertion"))       InsertionSort.sort(a);
+        if      (alg.equals("Insertion"))       InsertionSort.sortBetter(a);
         else if (alg.equals("InsertionX"))      InsertionSort.sort(a);
         else if (alg.equals("InsertionBook"))   Insertion.sort(a);
 //        else if (alg.equals("BinaryInsertion")) BinaryInsertion.sort(a);

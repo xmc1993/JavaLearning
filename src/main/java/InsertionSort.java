@@ -17,12 +17,16 @@ public class InsertionSort extends Sorts{
         }
     }
 
+    /**
+     * 第一次改良
+     * @param arr
+     */
     public static void sortBetter(Comparable[] arr){
         int N = arr.length;
         for(int i =1; i < N; i++){
             Comparable v = arr[i];
-            for(int j = i-1; j >= 0; j--){
-                if(less(v, arr[j])) exch(arr, j, j+1);
+            for(int j = i-1; j >= 0 && less(v, arr[j]); j--){
+                    exch(arr, j, j+1);
             }
         }
     }
