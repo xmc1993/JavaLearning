@@ -1,5 +1,3 @@
-package com.xmc.algorithm.util;
-
 /**
  * Created by xmc1993 on 16/9/26.
  */

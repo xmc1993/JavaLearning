@@ -1,4 +1,4 @@
-package com.xmc.algorithm.util;
+
 
 /**
  * Created by xmc1993 on 16/9/26.
@@ -8,7 +8,7 @@ package com.xmc.algorithm.util;
  * 但是union的特别慢
  * 每次union访问数组的次数字在N+3(for循环N次＋2次find＋至少1次替换ID)－2N+1(for循环N次+2次find+最多N-1次替换ID)
  */
-public class UFEasy extends UF{
+public class UFEasy extends UF {
 
     public UFEasy(int N){
         super(N);

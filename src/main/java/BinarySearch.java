@@ -1,4 +1,3 @@
-package com.xmc.algorithm.util;
 
 import java.util.Arrays;
 

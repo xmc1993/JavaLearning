@@ -1,5 +1,3 @@
-package com.xmc.algorithm.util;
-
 /**
  * Created by xmc1993 on 16/9/26.
  *
@@ -7,7 +5,7 @@ package com.xmc.algorithm.util;
  * union访问3次数组
  * 复杂度书上说不分析.......
  */
-public class UFMedium extends UF{
+public class UFMedium extends UF {
 
     public UFMedium(int N){
         super(N);
