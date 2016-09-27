@@ -46,7 +46,8 @@ public class UFBest extends UF {
 
     public static void main(String[] args) {
         int n = StdIn.readInt();
-        UF uf = new UFBest(n);
+//        UF uf = new UFBest(n);
+        UF uf = new UFEasy(n);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();

@@ -21,8 +21,10 @@ public class UFEasy extends UF {
         if (pID == qID) return;
 
         for (int i = 0; i < ufs.length; i++) {
-            if(ufs[i] == qID) ufs[i] = qID;
+            if(ufs[i] == pID) ufs[i] = qID;
+            System.out.print(ufs[i] + "-");
         }
+        System.out.println("");
         count--;
     }
 
