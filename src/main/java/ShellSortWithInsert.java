@@ -17,8 +17,8 @@ public class ShellSortWithInsert extends Sorts{
             for(int i =0; i < N; i++){//N的间隔就将数组分为N个小数组分别进行排序
                 for(int j = i; j < L; j += N ){//对于每一个数组都进行间隔为N的插入排序
                     Comparable v = arr[j];
-                    for(int k = j - N; k >= 0; k -= N){
-                        if (less(v, arr[k])) exch(arr, k, k+N);
+                    for(int k = j - N; k >= 0 && less(v, arr[k]); k -= N){
+                         exch(arr, k, k+N);
                     }
                 }
             }
