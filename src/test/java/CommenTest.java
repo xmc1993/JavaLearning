@@ -10,6 +10,11 @@ public class CommenTest {
         System.out.println(mock(10));
     }
 
+    @Test
+    public void testDivide(){
+        System.out.println(1 % 3);
+    }
+
     private static int mock(int param){
         if (param == 0){
             return 0;
