@@ -33,8 +33,8 @@ public class SortCompare {
 //        else if (alg.equals("Bubble"))          Bubble.sort(a);
         else if (alg.equals("Shell"))           ShellSortWithInsert.sort(a);
         else if (alg.equals("ShellBook"))       Shell.sort(a);
-//        else if (alg.equals("Merge"))           Merge.sort(a);
-//        else if (alg.equals("MergeX"))          MergeX.sort(a);
+        else if (alg.equals("Merge"))           MergeSort.sort(a);
+        else if (alg.equals("MergeX"))          MergeSort.sortFromBottom(a);
 //        else if (alg.equals("MergeBU"))         MergeBU.sort(a);
 //        else if (alg.equals("Quick"))           Quick.sort(a);
 //        else if (alg.equals("Quick3way"))       Quick3way.sort(a);
