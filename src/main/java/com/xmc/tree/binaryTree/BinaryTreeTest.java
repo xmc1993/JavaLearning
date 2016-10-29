@@ -9,11 +9,17 @@ public class BinaryTreeTest {
 
     public static void main(String[] args) {
 
-        leftTraversal(generateTestTree().getRootTreeNode());
+        leftTraversal(generateTestTree().getRootTreeNode());//左
         System.out.println("");
-        midTraversal(generateTestTree().getRootTreeNode());
+        midTraversal(generateTestTree().getRootTreeNode());//中
         System.out.println("");
-        rightTraversal(generateTestTree().getRootTreeNode());
+        rightTraversal(generateTestTree().getRootTreeNode());//右
+        System.out.println("");
+
+        System.out.println("----------------------------");
+        leftTraversal(getTreeFromLeftAndMid().getRootTreeNode());
+        System.out.println("");
+        midTraversal(getTreeFromLeftAndMid().getRootTreeNode());
     }
 
     public static BinaryTree generateTestTree() {
@@ -54,9 +60,9 @@ public class BinaryTreeTest {
      */
     public static void midTraversal(TreeNode rootNode) {
         if (rootNode == null) return;
-        if (rootNode.getLeftChildNode() != null) leftTraversal(rootNode.getLeftChildNode());
+        if (rootNode.getLeftChildNode() != null) midTraversal(rootNode.getLeftChildNode());
         System.out.print(rootNode.getValue() + "->");
-        if (rootNode.getRightChildNode() != null) leftTraversal(rootNode.getRightChildNode());
+        if (rootNode.getRightChildNode() != null) midTraversal(rootNode.getRightChildNode());
 
     }
 
@@ -72,4 +78,24 @@ public class BinaryTreeTest {
         System.out.print(rootNode.getValue() + "->");
 
     }
+
+    public static BinaryTree getTreeFromLeftAndMid(){
+        int[] left = {1, 2, 4, 8, 9, 5, 3, 6, 7};
+        int[] mid = {8, 4, 9, 2, 5, 1, 6, 3, 7};
+        return new BinaryTree(fromLeftAndMid(left, 0, 8, mid, 0, 8));
+    }
+
+    public static TreeNode fromLeftAndMid(int[] left, int ll, int lr, int[] mid, int ml, int mr) {
+        if (ll == lr) return new TreeNode(left[ll], null, null);  //如果到叶节点了
+        int value = left[ll];
+        TreeNode treeNode = new TreeNode(value, null, null); //新的子树的节点
+        int mPtr = ml;
+        while(mid[mPtr] != value) mPtr++;
+        ll++; //left[ll]节点已经消费了
+        int lPtr = ll + (mPtr - ml);
+        treeNode.setLeftChildNode(fromLeftAndMid(left, ll, lPtr-1, mid, ml, mPtr-1));
+        treeNode.setRightChildNode(fromLeftAndMid(left, lPtr, lr, mid, mPtr+1, mr));
+        return treeNode;
+    }
+
 }
