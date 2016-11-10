@@ -24,4 +24,11 @@ public class Sort {
         }
 //        if()
     }
+
+    private static void exchange(int[] arr, int x, int y){
+        int tmp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = tmp;
+
+    }
 }
