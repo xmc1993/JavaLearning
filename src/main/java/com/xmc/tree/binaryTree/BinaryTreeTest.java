@@ -56,23 +56,23 @@ public class BinaryTreeTest {
 
     }
 
-    public static void leftTraversalByStack(TreeNode rootNode){
+    public static void leftTraversalByStack(TreeNode rootNode) {
         if (rootNode == null) return;
         Stack<TreeNode> stack = new Stack<TreeNode>();
         System.out.print(rootNode.getValue() + "->");
         stack.push(rootNode);
 
-        while(stack.size() > 0){
+        while (stack.size() > 0) {
             TreeNode popNode = stack.pop();
 
-            while(popNode.getLeftChildNode() != null){
+            while (popNode.getLeftChildNode() != null) {
                 stack.push(popNode);
                 popNode = popNode.getLeftChildNode();
                 System.out.print(popNode.getValue() + "->");
                 stack.push(popNode);
             }
 
-            if(popNode.getRightChildNode() != null){
+            if (popNode.getRightChildNode() != null) {
                 System.out.print(popNode.getValue() + "->");
                 stack.push(popNode.getRightChildNode());
             }
@@ -98,8 +98,20 @@ public class BinaryTreeTest {
 
     }
 
-    public static void midTraversalByStack(){
-        
+    /**
+     * 使用栈的中序遍历
+     *
+     * @param rootNode
+     */
+    public static void midTraversalByStack(TreeNode rootNode) {
+        if (rootNode == null) return;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+            stack.push(rootNode);
+        while (!stack.isEmpty()) {
+            if (rootNode.getRightChildNode() != null) stack.push(rootNode.getRightChildNode());
+            System.out.print(rootNode.getValue() + "->");
+            if (rootNode.getLeftChildNode() != null) stack.push(rootNode.getLeftChildNode());
+        }
     }
 
     /**
@@ -115,7 +127,7 @@ public class BinaryTreeTest {
 
     }
 
-    public static BinaryTree getTreeFromLeftAndMid(){
+    public static BinaryTree getTreeFromLeftAndMid() {
         int[] left = {1, 2, 4, 8, 9, 5, 3, 6, 7};
         int[] mid = {8, 4, 9, 2, 5, 1, 6, 3, 7};
         return new BinaryTree(fromLeftAndMid(left, 0, 8, mid, 0, 8));
@@ -126,11 +138,11 @@ public class BinaryTreeTest {
         int value = left[ll];
         TreeNode treeNode = new TreeNode(value, null, null); //新的子树的节点
         int mPtr = ml;
-        while(mid[mPtr] != value) mPtr++;
+        while (mid[mPtr] != value) mPtr++;
         ll++; //left[ll]节点已经消费了
         int lPtr = ll + (mPtr - ml);
-        treeNode.setLeftChildNode(fromLeftAndMid(left, ll, lPtr-1, mid, ml, mPtr-1));
-        treeNode.setRightChildNode(fromLeftAndMid(left, lPtr, lr, mid, mPtr+1, mr));
+        treeNode.setLeftChildNode(fromLeftAndMid(left, ll, lPtr - 1, mid, ml, mPtr - 1));
+        treeNode.setRightChildNode(fromLeftAndMid(left, lPtr, lr, mid, mPtr + 1, mr));
         return treeNode;
     }
 
