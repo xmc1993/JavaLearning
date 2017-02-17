@@ -11,15 +11,23 @@ public class BinaryTreeTest {
 
     public static void main(String[] args) {
 
-        leftTraversal(generateTestTree().getRootTreeNode());//左
-        leftTraversalByStack(generateTestTree().getRootTreeNode());
-        System.out.println("");
-        midTraversal(generateTestTree().getRootTreeNode());//中
-        System.out.println("");
-        rightTraversal(generateTestTree().getRootTreeNode());//右
-        System.out.println("");
+        generateTestTree();
 
-        System.out.println("----------------------------");
+        leftTraversal(binaryTree.getRootTreeNode());//左
+        System.out.println("");
+        leftTraversalByStack(binaryTree.getRootTreeNode());
+        System.out.println("");
+        leftTraversalByStackV2(binaryTree.getRootTreeNode());
+        System.out.println("");
+        System.out.println("------left-------");
+        midTraversal(binaryTree.getRootTreeNode());//中
+        System.out.println("");
+        midTraversalByStack(binaryTree.getRootTreeNode());
+        System.out.println("");
+        System.out.println("-----mid------");
+        rightTraversal(binaryTree.getRootTreeNode());//右
+        System.out.println("");
+        System.out.println("------------right----------------");
         leftTraversal(getTreeFromLeftAndMid().getRootTreeNode());
         System.out.println("");
         midTraversal(getTreeFromLeftAndMid().getRootTreeNode());
@@ -56,34 +64,7 @@ public class BinaryTreeTest {
 
     }
 
-    public static void leftTraversalByStack(TreeNode rootNode) {
-        if (rootNode == null) return;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        System.out.print(rootNode.getValue() + "->");
-        stack.push(rootNode);
 
-        while (stack.size() > 0) {
-            TreeNode popNode = stack.pop();
-
-            while (popNode.getLeftChildNode() != null) {
-                stack.push(popNode);
-                popNode = popNode.getLeftChildNode();
-                System.out.print(popNode.getValue() + "->");
-                stack.push(popNode);
-            }
-
-            if (popNode.getRightChildNode() != null) {
-                System.out.print(popNode.getValue() + "->");
-                stack.push(popNode.getRightChildNode());
-            }
-
-//            while(popNode.getLeftChildNode() != null){
-//                stack.push(popNode);
-//                popNode = popNode.getLeftChildNode();
-//                stack.push()
-//            }
-        }
-    }
 
     /**
      * 二叉树中序遍历
@@ -98,6 +79,55 @@ public class BinaryTreeTest {
 
     }
 
+
+    /**
+     * 所有的节点看作根节点
+     * 关键在于何时访问
+     * 前序: 入栈时访问
+     * 中序: 第一次退栈时访问
+     * 后序: 第二次退栈时访问
+     * @param rootNode
+     */
+
+
+    /**
+     * 使用栈的前序遍历
+     * @param rootNode
+     */
+    public static void leftTraversalByStack(TreeNode rootNode) {
+        if (rootNode == null) return;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(rootNode);
+        while (stack.size() > 0) {
+            TreeNode popNode = stack.pop();
+            System.out.print(popNode.getValue() + "->");
+            if (popNode.getRightChildNode() != null) stack.push(popNode.getRightChildNode());
+            if (popNode.getLeftChildNode() != null) stack.push(popNode.getLeftChildNode());
+        }
+    }
+
+    /**
+     * 使用栈的前序遍历: V2版本 栈作主要作为辅助
+     * @param rootNode
+     */
+    public static void leftTraversalByStackV2(TreeNode rootNode){
+        if (rootNode == null) return;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode p = rootNode;
+
+        while (p !=null || !stack.isEmpty()){
+            while (p != null){
+                System.out.print(p.getValue() + "->");
+                stack.push(p);
+                p = p.getLeftChildNode();
+            }
+            if (!stack.isEmpty()){
+                p = stack.pop();
+                p = p.getRightChildNode();
+            }
+        }
+    }
+
     /**
      * 使用栈的中序遍历
      *
@@ -106,16 +136,36 @@ public class BinaryTreeTest {
     public static void midTraversalByStack(TreeNode rootNode) {
         if (rootNode == null) return;
         Stack<TreeNode> stack = new Stack<TreeNode>();
-            stack.push(rootNode);
-        while (!stack.isEmpty()) {
-            if (rootNode.getRightChildNode() != null) stack.push(rootNode.getRightChildNode());
-            System.out.print(rootNode.getValue() + "->");
-            if (rootNode.getLeftChildNode() != null) stack.push(rootNode.getLeftChildNode());
+        TreeNode p = rootNode;
+
+        while (p != null || !stack.isEmpty()) {
+            //持续向左边遍历
+            while (p != null) {
+                stack.push(p);
+                p = p.getLeftChildNode();
+            }
+
+            if (!stack.isEmpty()) {
+                p = stack.pop();
+                System.out.print(p.getValue() + "->");
+                p = p.getRightChildNode();
+            }
         }
     }
 
+
+
     /**
-     * 二叉树后序遍历
+     * 使用栈的后续遍历
+     * @param rootNode
+     */
+    public static void rightTraversalByStack(TreeNode rootNode){
+        if (rootNode == null) return;
+
+    }
+
+    /**
+     * 二叉树后序遍历 要释放一颗二叉树的所有资源 也可以采用后续遍历的方式
      *
      * @param rootNode
      */
