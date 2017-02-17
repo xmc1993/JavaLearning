@@ -17,7 +17,7 @@ public abstract class UF {
     }
 
     /**
-     *没输入一个连接关系都调用改方法进行归并
+     * 每输入一个连接关系都调用改方法进行归并
      * @param p
      * @param q
      */
@@ -34,7 +34,7 @@ public abstract class UF {
     }
 
     /**
-     *查找一个点的祖先点
+     * 查找一个点的祖先点
      * @param p
      * @return
      */

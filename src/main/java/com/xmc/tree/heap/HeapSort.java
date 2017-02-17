@@ -2,6 +2,8 @@ package com.xmc.tree.heap;
 
 /**
  * Created by xmc1993 on 16/10/26.
+ * 书上称之为优先队列
+ *
  */
 public class HeapSort {
 
