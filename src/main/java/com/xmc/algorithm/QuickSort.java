@@ -82,7 +82,7 @@ public class QuickSort {
                 if (i == hi) break;
             }
             while (array[--j] > pivot){
-                break;
+                if (j == lo) break;
             }
             if (i >= j){
                 break;
