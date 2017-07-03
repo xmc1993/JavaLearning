@@ -5,6 +5,10 @@ package com.xmc.sort;
  */
 public class Sort {
 
+    public static void main(String[] args) {
+
+    }
+
     public static void quickSort(int[] arr){
 
     }
