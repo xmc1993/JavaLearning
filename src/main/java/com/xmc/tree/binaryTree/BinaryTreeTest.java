@@ -33,6 +33,15 @@ public class BinaryTreeTest {
         midTraversal(getTreeFromLeftAndMid().getRootTreeNode());
     }
 
+    /**
+     *           1
+     *        2     3
+     *      4  5   6 7
+     *     8 9
+     *
+     *
+     * @return
+     */
     public static BinaryTree generateTestTree() {
         if (binaryTree != null) {
             return binaryTree;
@@ -46,6 +55,33 @@ public class BinaryTreeTest {
         TreeNode treeNode6 = new TreeNode(3, treeNode3, treeNode2);
         TreeNode treeNode7 = new TreeNode(2, treeNode5, treeNode4);
         TreeNode treeNode8 = new TreeNode(1, treeNode7, treeNode6);
+        binaryTree = new BinaryTree(treeNode8);
+
+        return binaryTree;
+    }
+
+
+    /**
+     *           5
+     *        3     7
+     *      2  4   6 8
+     *     1
+     *
+     *
+     * @return 生成一棵二叉搜索数
+     */
+    public static BinaryTree generateSearchTree() {
+        if (binaryTree != null) {
+            return binaryTree;
+        }
+        TreeNode treeNode1 = new TreeNode(1, null, null);
+        TreeNode treeNode2 = new TreeNode(8, null, null);
+        TreeNode treeNode3 = new TreeNode(6, null, null);
+        TreeNode treeNode4 = new TreeNode(4, null, null);
+        TreeNode treeNode5 = new TreeNode(2, treeNode1, null);
+        TreeNode treeNode6 = new TreeNode(7, treeNode3, treeNode2);
+        TreeNode treeNode7 = new TreeNode(3, treeNode5, treeNode4);
+        TreeNode treeNode8 = new TreeNode(5, treeNode7, treeNode6);
         binaryTree = new BinaryTree(treeNode8);
 
         return binaryTree;
