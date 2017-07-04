@@ -61,6 +61,22 @@ public class BinaryTreeTest {
     }
 
 
+    public static BinaryTree generateSubTestTree() {
+        if (binaryTree != null) {
+            return binaryTree;
+        }
+        TreeNode treeNode2 = new TreeNode(8, null, null);
+        TreeNode treeNode3 = new TreeNode(6, null, null);
+        TreeNode treeNode4 = new TreeNode(5, null, null);
+        TreeNode treeNode5 = new TreeNode(4, null, null);
+        TreeNode treeNode6 = new TreeNode(3, treeNode3, treeNode2);
+        TreeNode treeNode7 = new TreeNode(2, treeNode5, treeNode4);
+        TreeNode treeNode8 = new TreeNode(1, treeNode7, treeNode6);
+        binaryTree = new BinaryTree(treeNode8);
+
+        return binaryTree;
+    }
+
     /**
      *           5
      *        3     7
@@ -83,7 +99,6 @@ public class BinaryTreeTest {
         TreeNode treeNode7 = new TreeNode(3, treeNode5, treeNode4);
         TreeNode treeNode8 = new TreeNode(5, treeNode7, treeNode6);
         binaryTree = new BinaryTree(treeNode8);
-
         return binaryTree;
     }
 
