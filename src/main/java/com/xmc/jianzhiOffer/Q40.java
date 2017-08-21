@@ -8,7 +8,8 @@ public class Q40 {
 
     public static void main(String[] args) {
         int[] test1 = {1, 2, 3, 4, 1, 2, 4};
-//        System.out.println(oneDiff(test1));
+//        System.o
+// ut.println(oneDiff(test1));
         int[] test2 = {1, 2, 3, 4, 5, 1, 2, 3};
         twoDiff(test2);
     }

@@ -1,10 +1,20 @@
 package com.xmc.main;
 
+import java.io.Serializable;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class Main {
+public class Main implements Serializable{
+
+    @Override
+    public Main clone(){
+        return null;
+    }
+
+
+
+    protected void test(){
+
+    }
 
     public static void main(String[] args) {
 
