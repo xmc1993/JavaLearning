@@ -1,7 +1,6 @@
 package com.xmc.main;
 
 import java.io.Serializable;
-import java.util.Scanner;
 
 public class Main implements Serializable{
 
@@ -17,23 +16,28 @@ public class Main implements Serializable{
     }
 
     public static void main(String[] args) {
+        Integer a = 5;
+        Integer b = 5;
+        int c = 5;
+        System.out.println(a.equals(b));
+        System.out.println(a.equals(c));
 
-        Scanner in = new Scanner(System.in);
-        String str = in.nextLine();
-        String pattern = in.nextLine();
-        if (pattern == null || str == null) {
-            System.out.println(-1);
-            return;
-        }
-        if ("".equals(pattern)) {
-            System.out.println(1);
-            return;
-        }
+//        Scanner in = new Scanner(System.in);
+//        String str = in.nextLine();
+//        String pattern = in.nextLine();
+//        if (pattern == null || str == null) {
+//            System.out.println(-1);
+//            return;
+//        }
+//        if ("".equals(pattern)) {
+//            System.out.println(1);
+//            return;
+//        }
 
 //        Pattern pat = Pattern.compile(pattern);
 //        Matcher matcher = pat.matcher(str);
 //        System.out.println(matcher.matches());
-        System.out.println(filter(str, pattern));
+//        System.out.println(filter(str, pattern));
     }
 
     public static int filter(String str, String pattern) {
